@@ -14,7 +14,7 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:20px 50px;
-    border:1px solid #222;
+    border:1px solid #b3ebff;
     background:white;
 }
 
@@ -23,6 +23,17 @@ body{
     color:black;
     margin-left:30px;
     font-weight:bold;
+}
+
+#menu-toggle{
+    display:none;
+}
+
+.menu-btn,
+.close-btn{
+    display:none;
+    font-size:32px;
+    cursor:pointer;
 }
 
 .hero{
@@ -49,7 +60,7 @@ body{
     width:100%;
     height:260px;
     object-fit:cover;
-    animation:fadeIn 2s ease;
+    animation:fadeUp 1.2s ease;
 }
 
 button{
@@ -87,7 +98,7 @@ button{
     width:100%;
     height:150px;
     object-fit:cover;
-    animation:fadeIn 2s ease;
+    animation:fadeUp 1.2s ease;
 }
 
 .card h3{
@@ -110,7 +121,7 @@ button{
     width:100%;
     height:160px;
     object-fit:cover;
-    animation:fadeIn 2s ease;
+    animation:fadeUp 1.2s ease;
 }
 
 .package h3,
@@ -168,7 +179,7 @@ textarea{
     width:100%;
     height:230px;
     object-fit:cover;
-    animation:fadeIn 2s ease;
+    animation:fadeUp 1.2s ease;
 }
 
 .footer{
@@ -202,15 +213,15 @@ textarea{
     border-bottom:1px solid #222;
 }
 
-@keyframes fadeIn{
+@keyframes fadeUp{
     from{
         opacity:0;
-        transform:scale(1.1);
+        transform:translateY(50px);
     }
 
     to{
         opacity:1;
-        transform:scale(1);
+        transform:translateY(0);
     }
 }
 
@@ -231,20 +242,60 @@ textarea{
 
 /* Mobile */
 @media(max-width:768px){
+
     .navbar{
+        padding:20px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .links{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:75%;
+        height:100vh;
+        background:#5b1009;
+        display:flex;
         flex-direction:column;
-        gap:15px;
+        justify-content:center;
+        align-items:center;
+        gap:35px;
+        transition:0.4s;
+        z-index:999;
     }
 
     .links a{
+        color:white;
+        margin:0;
+        font-size:18px;
+        font-weight:bold;
+        text-transform:uppercase;
+    }
+
+    .close-btn{
         display:block;
-        margin:10px 0;
-        text-align:center;
+        position:absolute;
+        top:20px;
+        right:25px;
+        color:white;
+        font-size:35px;
+    }
+
+    #menu-toggle:checked ~ .links{
+        right:0;
     }
 
     .hero{
         grid-template-columns:1fr;
         text-align:center;
+        padding:30px 20px;
+    }
+
+    .section{
+        padding:30px 20px;
     }
 
     .places,
@@ -253,5 +304,9 @@ textarea{
     .contact,
     .footer{
         grid-template-columns:1fr;
+    }
+
+    .footer{
+        padding:30px 20px;
     }
 }
